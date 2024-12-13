@@ -1,0 +1,23 @@
+.scrolling-container {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    perspective: 1000px;
+  }
+  
+  .scrolling-row {
+    white-space: nowrap;
+    display: flex;
+    gap: 1rem;
+    mix-blend-mode: screen;
+  }
+  
+  .message {
+    font-size: 1rem;
+    padding: 0.1rem;
+    color: #F88FB0;
+    font-family: 'Poppins';
+    
+  }
