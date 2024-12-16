@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
-import textContent from './assets/te_amos.txt?raw';
+import textContent from './assets/te_amos.json';
 import ScrollingMessages from './ScrollingMessages';
+import { text } from 'framer-motion/client';
 
 // Componente de efecto de escritura de texto
 const TypewriterEffect = ({ text, speed = 50 }) => {
@@ -110,8 +111,7 @@ const CarouselPage = ({ images }) => {
 // Componente principal de la aplicación
 const App = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const messagesChat = textContent.split('\n').map((line) => line.trim()).filter(Boolean);
-  console.log(messagesChat);
+  const messagesChat = textContent
   const imagesPolliamor = [
     '/images/polliamor.jpg',
     '/images/polliamor2.jpg',

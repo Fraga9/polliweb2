@@ -1,23 +1,55 @@
 .scrolling-container {
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    perspective: 1000px;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  perspective: 1500px;
+  position: relative;
+  padding: 2rem;
+}
+
+.scrolling-row {
+  white-space: nowrap;
+  display: flex;
+  gap: 1rem;
+  mix-blend-mode: screen;
+  --depth: calc(var(--index) * -100px);
+  transform-style: preserve-3d;
+  transform: translateZ(var(--depth));
+  animation: scrolling 10s linear infinite;
+}
+
+.message {
+  font-size: 0.8rem;
+  padding: 0.2rem;
+  color: #F88FB0;
+  font-family: 'Poppins';
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+@media screen and (max-width: 390px) {
+  .scrolling-container {
+    height: 100dvh;
+    justify-content: space-evenly;
+    padding: 1rem;
   }
-  
+
   .scrolling-row {
-    white-space: nowrap;
-    display: flex;
-    gap: 1rem;
-    mix-blend-mode: screen;
+    gap: 0.8rem;
+    --depth: calc(var(--index) * -50px);
   }
-  
+
   .message {
-    font-size: 1rem;
+    font-size: 0.65rem;
     padding: 0.1rem;
-    color: #F88FB0;
-    font-family: 'Poppins';
-    
   }
+}
+
+@media screen and (max-height: 844px) {
+  .scrolling-container {
+    padding: 0.5rem 0;
+  }
+}
