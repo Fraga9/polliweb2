@@ -113,16 +113,16 @@ const App = () => {
   const messagesChat = textContent.split('\n').map((line) => line.trim()).filter(Boolean);
   console.log(messagesChat);
   const imagesPolliamor = [
-    'src/images/polliamor.jpg', 
-    'src/images/polliamor2.jpg', 
-    'src/images/polliamor3.jpg', 
-    'src/images/polliamor4.jpg', 
-    'src/images/polliamor5.jpg'
+    '/images/polliamor.jpg',
+    '/images/polliamor2.jpg',
+    '/images/polliamor3.jpg',
+    '/images/polliamor4.jpg',
+    '/images/polliamor5.jpg'
   ];
   
   const pages = [
     { type: 'text', title: 'Bienvenido a la polliweb', content: 'Páágina para atesorar los recuerdos del polliamor' },
-    { type: 'image', imageUrl: 'src/images/polliamor6.jpg', alt: 'Descripción de imagen' },
+    { type: 'image', imageUrl: '/images/polliamor6.jpg', alt: 'Descripción de imagen' },
     { type: 'carousel', images: imagesPolliamor },
     { type: 'scrolling', messages: messagesChat},
     { type: 'text', title: '604 veces nos hemos dicho Te amo', content: 'Y  quiero que lo sigamos diciendo para siempre.' },
