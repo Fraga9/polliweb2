@@ -3,21 +3,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import textContent from './assets/te_amos.json';
 import ScrollingMessages from './ScrollingMessages';
-import { text } from 'framer-motion/client';
+import HourlyActivityChart from './HourlyActivityChart';
+import FavoriteSong from './FavoriteSong';
 
-// Componente de efecto de escritura de texto
 const TypewriterEffect = ({ text, speed = 50 }) => {
   const [displayedText, setDisplayedText] = useState('');
   const indexRef = useRef(0);
   const timerRef = useRef(null);
-  
 
   useEffect(() => {
-    // Reset state when text changes
     setDisplayedText('');
     indexRef.current = 0;
 
-    // Clear previous timer if text or speed changes
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
@@ -32,14 +29,14 @@ const TypewriterEffect = ({ text, speed = 50 }) => {
       }
     }, speed);
 
-    return () => clearInterval(timerRef.current); 
+    return () => clearInterval(timerRef.current);
   }, [text, speed]);
 
   return <span>{displayedText}</span>;
 };
 
-// Componente de página de texto
-const TextPage = ({ title, content }) => {
+// Updated TextPage component with navigation button
+const TextPage = ({ title, content, onNavigate, showButton, targetPage }) => {
   return (
     <motion.div 
       className="page text-page"
@@ -51,11 +48,18 @@ const TextPage = ({ title, content }) => {
       <p>
         <TypewriterEffect text={content} />
       </p>
+      {showButton && (
+        <button 
+          className="navigation-button"
+          onClick={() => onNavigate(targetPage)}
+        >
+          PolliWrapped
+        </button>
+      )}
     </motion.div>
   );
 };
 
-// Componente de página de imagen
 const ImagePage = ({ imageUrl, alt }) => {
   return (
     <motion.div 
@@ -69,7 +73,6 @@ const ImagePage = ({ imageUrl, alt }) => {
   );
 };
 
-// Componente de página tipo carousel
 const CarouselPage = ({ images }) => {
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -106,12 +109,11 @@ const CarouselPage = ({ images }) => {
       </div>
     </motion.div>
   );
-}
+};
 
-// Componente principal de la aplicación
 const App = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const messagesChat = textContent
+  const messagesChat = textContent;
   const imagesPolliamor = [
     '/images/polliamor.jpg',
     '/images/polliamor2.jpg',
@@ -121,7 +123,7 @@ const App = () => {
   ];
   
   const pages = [
-    { type: 'text', title: 'Bienvenido a la polliweb', content: 'Páágina para atesorar los recuerdos del polliamor' },
+    { type: 'text', title: 'Bienvenido a la polliweb', content: 'Páágina para atesorar los recuerdos del polliamor', showButton: true, targetPage: 9 },
     { type: 'image', imageUrl: '/images/polliamor6.jpg', alt: 'Descripción de imagen' },
     { type: 'carousel', images: imagesPolliamor },
     { type: 'scrolling', messages: messagesChat},
@@ -130,6 +132,11 @@ const App = () => {
     { type: 'text', title: 'Quisiera hacerte una petición tal vez un poco egoísta', content: 'Seer el dueño de tu amor'},
     { type: 'text', title: '¿Aceptas?', content: '' },
     { type: 'text', title: 'Te amo', content: '<3333'},
+    { type: 'text', title: 'Nuestro polliwrapped 2024', content: 'Lllegó el momento de revisar los números de nuestro polliamor'},
+    { type: 'hourlyActivityChart'},
+    { type: 'FavoriteSong'}
+
+
   ];
 
   const handleSwipe = (direction) => {
@@ -140,6 +147,10 @@ const App = () => {
     }
   };
 
+  const navigateToPage = (pageIndex) => {
+    setCurrentPage(pageIndex);
+  };
+
   return (
     <div className="app-container">
       <AnimatePresence>
@@ -147,7 +158,10 @@ const App = () => {
           <TextPage 
             key={`text-${currentPage}`}
             title={pages[currentPage].title} 
-            content={pages[currentPage].content} 
+            content={pages[currentPage].content}
+            onNavigate={navigateToPage}
+            showButton={pages[currentPage].showButton}
+            targetPage={pages[currentPage].targetPage}
           />
         ) : pages[currentPage].type === 'image' ? (
           <ImagePage 
@@ -165,6 +179,10 @@ const App = () => {
             key={`scrolling-${currentPage}`}
             messages={pages[currentPage].messages}
           />
+        ) : pages[currentPage].type === 'hourlyActivityChart' ? (
+          <HourlyActivityChart />
+        ) : pages[currentPage].type === 'FavoriteSong' ? (
+          <FavoriteSong />
         ) : null}
       </AnimatePresence>
       <div 

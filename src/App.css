@@ -107,3 +107,23 @@ body, html {
 .dot.active {
   background-color: #333;
 }
+
+.navigation-button {
+  background-color: #F88FB0;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.navigation-button:hover {
+  background-color: #f9578b;
+}
+
+.navigation-button:active {
+  transform: scale(0.98);
+}

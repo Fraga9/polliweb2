@@ -1,0 +1,104 @@
+.chart-container {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  
+  .chart-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #F88FB0;
+  }
+  
+  .chart-wrapper {
+    width: 100%;
+    height: 80vh;
+    margin: 0 auto;
+  }
+  
+  .custom-tooltip {
+    background-color: #fff8f8;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+    border: 1px solid #ffe4e1;
+  }
+  
+  .tooltip-time {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #ff69b4;
+  }
+  
+  .tooltip-value {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .custom-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  
+  .legend-text {
+    color: #ff69b4;
+    font-size: 0.9rem;
+  }
+  
+  /* Estilos para dispositivos móviles */
+  @media (max-width: 640px) {
+    .chart-container {
+      padding: 0.5rem;
+      padding-left: 0rem;
+      border-radius: 0.8rem;
+    }
+  
+    .chart-title {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+  
+    .chart-wrapper {
+      height: 80vh;
+    }
+  
+    .custom-tooltip {
+      padding: 0.6rem;
+      font-size: 0.8rem;
+    }
+  
+    .legend-text {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Personalización de elementos Recharts */
+  .recharts-cartesian-grid-horizontal line,
+  .recharts-cartesian-grid-vertical line {
+    stroke-opacity: 0.3;
+  }
+  
+  .recharts-tooltip-cursor {
+    fill: rgba(255, 182, 193, 0.1);
+  }
+  
+  .recharts-layer.recharts-bar-rectangles {
+    filter: drop-shadow(0 2px 3px rgba(255, 105, 180, 0.2));
+  }
