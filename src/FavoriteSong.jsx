@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Music } from 'lucide-react';
+import { Heart, Music, PlayCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './FavoriteSong.css';
 
@@ -27,28 +27,32 @@ const FavoriteSong = () => {
         </motion.div>
 
         <motion.div 
-          className="song-embed"
+          className="album-cover"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          <iframe
-            src="https://open.spotify.com/embed/track/6O3D5ai8UmEHwyicBq07pk?utm_source=generator&theme=0"
-            width="100%"
-            height="281.5"
-            allowFullScreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
+          <img src="./Camara.jpg" alt="Album Cover" />
+          <div className="song-info">
+            <h3>Cámara de faltas</h3>
+            <p>Enjambre</p>
+          </div>
         </motion.div>
 
         <motion.div 
-          className="song-footer"
+          className="scrobbles-info"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          <p>Si una canción atesorara el amor que nos tenemos</p>
+          <div className="scrobble-count">
+            <span className="listener">Héctor</span>
+            <span className="count">53 reproducciones</span>
+          </div>
+          <div className="scrobble-count">
+            <span className="listener">Pollito</span>
+            <span className="count">33 reproducciones</span>
+          </div>
         </motion.div>
       </div>
     </motion.div>
