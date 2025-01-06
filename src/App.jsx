@@ -5,6 +5,7 @@ import textContent from './assets/te_amos.json';
 import ScrollingMessages from './ScrollingMessages';
 import HourlyActivityChart from './HourlyActivityChart';
 import FavoriteSong from './FavoriteSong';
+import TopWordsCard from './TopWordsCard';
 
 const TypewriterEffect = ({ text, speed = 50 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -133,10 +134,10 @@ const App = () => {
     { type: 'text', title: '¿Aceptas?', content: '' },
     { type: 'text', title: 'Te amo', content: '<3333'},
     { type: 'text', title: 'Nuestro polliwrapped 2024', content: 'Lllegó el momento de revisar los números de nuestro polliamor'},
-    { type: 'hourlyActivityChart'},
-    { type: 'FavoriteSong'}
-
-
+    { type: 'FavoriteSong'},
+    { type: 'Palabras', user: 'pollito' },
+    { type: 'Palabras', user: 'Héctor' },
+    { type: 'hourlyActivityChart'}
   ];
 
   const handleSwipe = (direction) => {
@@ -183,6 +184,8 @@ const App = () => {
           <HourlyActivityChart />
         ) : pages[currentPage].type === 'FavoriteSong' ? (
           <FavoriteSong />
+        ) : pages[currentPage].type === 'Palabras' ? (
+          <TopWordsCard user={pages[currentPage].user} />
         ) : null}
       </AnimatePresence>
       <div 

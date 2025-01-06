@@ -1,0 +1,17 @@
+{
+    "pollito": [
+      { "word": "amor", "frequency": 1963 },
+      { "word": "hola", "frequency": 762 },
+      { "word": "bien", "frequency": 614 },
+      { "word": "mucho", "frequency": 583 },
+      { "word": "quiero", "frequency": 507 }
+    ],
+    "Héctor": [
+      { "word": "amor", "frequency": 2163 },
+      { "word": "hola", "frequency": 829 },
+      { "word": "siii", "frequency": 827 },
+      { "word": "siempre", "frequency": 816 },
+      { "word": "mucho", "frequency": 754 }
+    ]
+  }
+  
