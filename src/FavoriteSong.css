@@ -92,3 +92,35 @@
   font-size: 0.875rem;
 }
 
+/* media queries */
+@media screen and (max-width: 375px) {
+  .song-card {
+    max-width: 250px;
+    padding: 1.5rem;
+  }
+
+  .album-cover {
+    margin: 1rem 0;
+  }
+
+  .album-cover img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .year-badge {
+    font-size: 0.775rem;
+  }
+
+  .song-info {
+    margin-top: 0.5rem;
+  }
+  
+  .scrobbles-info {
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+
+
+
+}
