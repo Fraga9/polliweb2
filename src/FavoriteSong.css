@@ -1,7 +1,6 @@
 .favorite-song-container {
-  min-height: 100vh; /* Fallback para navegadores sin soporte de dvh */
-  min-height: 100dvh; /* Altura dinámica para manejar UI en móviles */
-  width: 100vw; /* Asegura el ancho completo del viewport */
+  min-height: 100dvh;
+  width: 100vw;
   margin: 0;
   padding: 0;
   display: flex;
@@ -9,7 +8,7 @@
   justify-content: center;
   background: linear-gradient(135deg, #F88FB0 0%, #B24592 100%);
   box-sizing: border-box;
-  overflow: hidden; /* Oculta cualquier desbordamiento, tanto horizontal como vertical */
+  overflow-x: hidden;
 }
 
 .song-card {

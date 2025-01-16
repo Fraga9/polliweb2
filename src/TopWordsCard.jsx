@@ -2,29 +2,10 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { MessageSquare } from "lucide-react";
 import "./TopWordsCard.css";
-import wordData from "./assets/wordFrequencies.json";
+import wordData from "./assets/wordFrequencies.json"; 
 
 const TopWordsCard = ({ user }) => {
   const [wordFrequencies, setWordFrequencies] = useState([]);
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
-
-  useEffect(() => {
-    // Actualiza la altura dinámica del viewport
-    const updateHeight = () => {
-      setViewportHeight(window.innerHeight);
-      document.documentElement.style.setProperty(
-        "--dynamic-height",
-        `${window.innerHeight}px`
-      );
-    };
-
-    // Escucha cambios en el tamaño de la ventana
-    window.addEventListener("resize", updateHeight);
-    updateHeight();
-
-    // Limpia el listener al desmontar el componente
-    return () => window.removeEventListener("resize", updateHeight);
-  }, []);
 
   useEffect(() => {
     // Carga las palabras según el usuario
@@ -38,7 +19,6 @@ const TopWordsCard = ({ user }) => {
   return (
     <motion.div
       className="top-words-container"
-      style={{ minHeight: `var(--dynamic-height)` }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
