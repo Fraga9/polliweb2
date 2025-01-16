@@ -93,10 +93,11 @@
 }
 
 /* media queries */
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 400px) {
   .song-card {
     max-width: 250px;
     padding: 1.5rem;
+    margin-bottom: 50px;
   }
 
   .album-cover {
@@ -109,7 +110,7 @@
   }
 
   .year-badge {
-    font-size: 0.775rem;
+    font-size: 0.975rem;
   }
 
   .song-info {
