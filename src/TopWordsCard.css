@@ -1,6 +1,5 @@
 .top-words-container {
   min-height: 100vh; /* Fallback para navegadores sin soporte de dvh */
-  min-height: 100dvh; /* Altura dinámica para manejar UI en móviles */
   width: 100vw; /* Asegura el ancho completo del viewport */
   margin: 0;
   padding: 0;
